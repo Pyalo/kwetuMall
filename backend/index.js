@@ -18,7 +18,3 @@ app.use('/', activityRoutes);
 app.listen(PORT, () => {
     console.log('Server is listening on PORT:' + PORT);
 });
-
-// mongodb+srv://pyalo:<password>@kwetumalldb.prp3nti.mongodb.net/?retryWrites=true&w=majority
-//
-//This is my first change
