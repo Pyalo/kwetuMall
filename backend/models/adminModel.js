@@ -14,10 +14,10 @@ const adminSchema = new Schema ({
         required: true
     },
     email: {
-        type: Number,
+        type: String,
         required: true
     },
-    pasword: {
+    password: {
         type: String,
         required: true
     }

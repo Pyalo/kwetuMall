@@ -21,7 +21,7 @@ app.use('/', activityRoutes);
 app.use('/category', categoryRoutes);
 app.use('/students', studentsRoutes);
 app.use('/', userAuth);
-app.use('/', adminAuth);
+app.use('/admin', adminAuth);
 
 app.listen(PORT, () => {
     console.log('Server is listening on PORT:' + PORT);
