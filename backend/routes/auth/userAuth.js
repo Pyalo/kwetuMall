@@ -2,10 +2,16 @@ import express from 'express';
 import userModel from '../../models/userModel.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-
+import checkAuth from './checkAuth.js';
 
 const router = express.Router();
 const saltRound = 10;
+
+
+router.get('/users', checkAuth, async (req, res) =>{
+    console.log(req.user)
+    res.send(`Hello ${req.user.firstName} ${req.user.lastName} you are logged in bwana!`)
+});
 
 router.post('/signin', async (req, res)=> {
     if(!req.body.email || !req.body.password){
@@ -14,9 +20,9 @@ router.post('/signin', async (req, res)=> {
     const user = await userModel.findOne({email: req.body.email})
     bcrypt.compare(req.body.password, user.password, (err, response)=>{
         if(err){
-            res.send(err);
+            res.send(err); 
         }else if (response === true){
-            const token = jwt.sign({userId: user._id}, 'MY_SECTRET_KEY');
+            const token = jwt.sign({userId: user._id}, 'MY_SECRET_KEY'); 
             res.send({
                 token: token,
                 message: 'User authenticated'
