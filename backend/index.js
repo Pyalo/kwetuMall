@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import cors from 'cors';
 import classRoutes from "./routes/classRoutes.js";
 import activityRoutes from "./routes/activityRoutes.js";
 import mongoose from "mongoose";
@@ -10,6 +11,7 @@ import adminAuth from './routes/auth/adminAuth.js';
 
 const app = express();
 const PORT = 5000;
+app.use(cors());
 app.use(bodyParser());
 const mongoUri = 'mongodb+srv://pyalo:kimjolang01@kwetumalldb.prp3nti.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(mongoUri)
