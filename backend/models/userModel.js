@@ -28,7 +28,6 @@ const userSchema = new Schema ({
     },
     gender: {
         type: String,
-        required: true
     },
     cart: [Object],
     wishlist: [String]

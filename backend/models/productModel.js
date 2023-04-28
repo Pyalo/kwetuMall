@@ -5,6 +5,10 @@ const productSchema = new Schema ({
         type: String,
         required: true
     },
+    description: {
+        type: String,
+        required: true
+    },
     quantity: {
         type: Number,
         required: true
@@ -21,9 +25,12 @@ const productSchema = new Schema ({
     },
     mainImage: {
         type: String,
-        required: true
+        required: true 
     },
     images: [String],
-    category: [String]
+    category: [String], 
+    discountPercentage: {
+        type: Number 
+    }
 });
 export default model('productModel', productSchema);

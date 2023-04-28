@@ -16,7 +16,7 @@ const checkAuth = (req, res, next)=>{
         if(err){ 
             res.send('you must be logged in')
         }
-        const user = await userModel.findOne({_id: data.userId});
+        const user = await userModel.findOne({_id: data.userId}); 
         req.user = user; 
         next(); 
     });

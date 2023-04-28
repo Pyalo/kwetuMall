@@ -20,7 +20,7 @@ router.get('/get', async (req, res) => {
         const categories = await categoryModel.find();
         res.send(categories);
     } catch (error){
-        console.log(error);
+        console.log(error); 
     }
 });
 router.get('/:id', async (req, res) => {
