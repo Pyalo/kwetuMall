@@ -8,7 +8,7 @@ import Alert from 'react-bootstrap/Alert';
 
 const CheckoutModal = () => {
   const [show, setShow] = useState(false);
-  const [showAlert, setShowAlert] = useState(true);
+  const [showAlert, setShowAlert] = useState(false);
   const [pickupPoints, setPickupPoints] = useState([]);
   const [locations, setLocations] =useState([]);
   const [locationNames, setLocationNames] = useState([])
@@ -32,13 +32,16 @@ const CheckoutModal = () => {
     const locationNames = pickupPoints.filter((pickupPoint) => {
       return pickupPoint.location === e
     })
-    console.log(locationNames)
+    console.log(locationNames) 
     setLocationNames(locationNames)
   }
   const checkout = async (e) => {
-    e.preventDefault();
+    e.preventDefault();  
     const { data } = await privateApi.post('/cart/checkout')
     console.log(data)
+    if(data.message === 'Checked out successfully'){
+      setShowAlert(true)
+    }
   }
 
   useEffect(() =>{

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import privateApi from '../api/privateApi.js';
 import CheckoutModal from '../components/CheckoutModal.jsx';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
  
 
 const CartDetails = () => {
@@ -32,10 +34,14 @@ const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
   }, []); 
   return (
     <div> 
+      <div>
+        <p>Kwetumall <AccountCircleIcon style={styles.top}></AccountCircleIcon> </p>
+        <hr></hr>
+      </div>
       {
         cart.map((cartItem) => {
           return(
-            <div key={cartItem.product._id} style={{...styles.flow, ...styles.cont}} className='mb-3'>
+            <div key={cartItem.product._id} style={{...styles.flex, ...styles.cont}} className='mb-3'>
               <img alt={cartItem.product.name} src={backendUrl + cartItem.product.mainImage}/>
               <p>{cartItem.product.name}</p>
               <p>Ksh {cartItem.product.price}</p>
@@ -52,11 +58,20 @@ const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
 }
 const styles={
   flex:{
-      display: 'flex'
-    },
-    cont:{
+      display: 'flex',
       justify: 'space-between',
       alignItems: 'center'
+    },
+  cont:{
+      justify: 'space-between',
+      alignItems: 'center'
+    },
+    top:{
+      justify: 'space-around',
+      position: 'absolute'
+    },
+    cut: {
+      display: 'flex'
     }
   }
 

@@ -6,7 +6,7 @@ import productModel from '../models/productModel.js';
 
 
 
-const router = express.Router()
+const router = express.Router() 
 router.post('/addtocart/:id', checkAuth, async (req, res)=>{
     let productId = req.params.id
     console.log(req.user.id)
@@ -15,7 +15,7 @@ router.post('/addtocart/:id', checkAuth, async (req, res)=>{
     user.cart.forEach((product)=>{
         if(product._id === productId){
             inCart = true
-        } 
+        }  
     })
     if(inCart === true){
         res.send({message: 'Product already in cart'})
@@ -47,8 +47,8 @@ router.post('/remove/:id', checkAuth, async (req, res)=> {
     const cart = user.cart;
 
     let newCart = []
-    for(let i = 0; i<cart.length; i++){
-        if(cart[i]._id !== productId){
+    for(let i = 0; i<cart.length; i++){  
+        if(cart[i]._id !== productId){ 
         newCart = [...newCart, cart[i]]
         }
     }

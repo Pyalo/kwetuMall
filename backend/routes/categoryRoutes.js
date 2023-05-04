@@ -10,8 +10,8 @@ router.post ('/create', async (req, res)=> {
         });
         const data = await newCategory.save()
         res.send(data);
-    } catch (error) {
-        console.log(error);
+    } catch (error) { 
+        console.log(error); 
     }
 });
 
