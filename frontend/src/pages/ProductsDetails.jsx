@@ -2,7 +2,11 @@ import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom'
 import publicApi from '../api/publicApi.js'
 import privateApi from '../api/privateApi.js'
-// import { Container } from '@mui/material';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+ 
+
+
 const ProductDetails = () =>{
     const{ id } = useParams()
     const [product, setProduct] = useState({})
@@ -43,7 +47,11 @@ const addToCart = async () => {
         <div style={styles.upmost}>
             <div>
                 <div>
-                <p>Kwetumall</p>
+                <p style={styles.base}>
+                    Kwetumall
+                    <AccountCircleIcon /> 
+                    <ShoppingCartIcon />
+                </p>
                 <hr style={styles.hrline}></hr >
                 </div>
                 <img src={backendUrl + product.mainImage} alt={product.name} style={styles.cont}/>
@@ -84,7 +92,8 @@ const styles= {
     },
     horizontal: {
         display: 'flex',
-        margin: '20px'
+        margin: '20px',
+        
     },
     maging: {
         width: '50px',
@@ -98,6 +107,10 @@ const styles= {
     },
     hrline:{
         width: '500px'
+    },
+    base:{
+        paddingTop: '10px',
+        marginBottom: '0px'
     }
 }
 export default ProductDetails

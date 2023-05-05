@@ -54,7 +54,7 @@ const Home = () => {
                                 </Col>
                             ))   
                         } 
-                    </Row>
+                    </Row> 
             </Container>
         </div> 
     )

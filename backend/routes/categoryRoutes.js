@@ -9,9 +9,9 @@ router.post ('/create', async (req, res)=> {
             name: req.body.name
         });
         const data = await newCategory.save()
-        res.send(data);
+        res.send(data); 
     } catch (error) { 
-        console.log(error); 
+        console.log(error);  
     }
 });
 
@@ -38,12 +38,12 @@ router.post('/update/:id', async (req, res)=> {
         category.name = req.body.name
         const result = await category.save();
         res.send(result)
-    } catch (error) {
-        console.log(error)
+    } catch (error) { 
+        console.log(error)   
     }
 });
 router.post('/delete/:id', async (req, res)=>{
-    try {
+    try { 
         await categoryModel.deleteOne({_id: req.params.id})
         res.send('Deleted successfully')
     } catch (error) {

@@ -4,13 +4,15 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import publicApi from '../../api/publicApi';
 import { useParams } from 'react-router-dom';
+
+
 const EditCategory = () => {
     const {id} = useParams();
     const [categoryData, setCategoryData] = useState({});
     const getCategory = async () =>{
         const {data} = await publicApi.get(`/category/${id}`)
         console.log(data)
-        setCategoryData(data)
+        setCategoryData(data) 
     }
     const updateCategory = async(e)=>{
         e.preventDefault();

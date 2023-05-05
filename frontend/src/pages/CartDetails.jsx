@@ -35,7 +35,11 @@ const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
   return (
     <div> 
       <div>
-        <p>Kwetumall <AccountCircleIcon style={styles.top}></AccountCircleIcon> </p>
+        <p>
+          Kwetumall 
+          <AccountCircleIcon style={styles.top}/> 
+          <ShoppingCartIcon style={styles.top}/>
+        </p>
         <hr></hr>
       </div>
       {
@@ -67,8 +71,8 @@ const styles={
       alignItems: 'center'
     },
     top:{
-      justify: 'space-around',
-      position: 'absolute'
+      alignItems: 'center'
+      
     },
     cut: {
       display: 'flex'
